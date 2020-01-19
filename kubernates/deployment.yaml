@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer-demo-app
+  labels:
+    app: producer-demo-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producer-demo-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: producer-demo-app
+    spec:
+      containers:
+      - image: iferca/producer-demo-app:latest
+        imagePullPolicy: Always
+        name: producer-demo-app
+        ports:
+        - containerPort: 5000
+          protocol: TCP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: producer-demo-app
+spec:
+  selector:
+    app: producer-demo-app
+  type: LoadBalancer
+  ports:
+   -  protocol: TCP
+      port: 80
+      targetPort: 5000

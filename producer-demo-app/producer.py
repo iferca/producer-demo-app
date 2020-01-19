@@ -19,5 +19,8 @@ producer = Producer(**conf)
 
 def produce(message, topic=None, count=1):
     _topic = topic or config.resolve_config("CONSUMER_TOPICS")
-    for i in range(count):
-        producer.produce(_topic, message + ": " + str(i), on_delivery=on_delivery)
+    try:
+        for i in range(count):
+            producer.produce(_topic, message + ": " + str(i), on_delivery=on_delivery)
+    except Exception as e:
+        sys.stderr.write("Exception " + e.__class__.__name__ + " :: " + e)
