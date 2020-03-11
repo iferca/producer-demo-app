@@ -2,8 +2,7 @@
 import os
 
 defaults = {
-    "BROKER": "localhost",
-    "CONSUMER_TOPICS": "test_topic_in",
+    "CONSUMER_TOPICS": "spanda.poc.test.in",
 }
 
 

@@ -1,9 +1,16 @@
 import sys
+import os
 
 import config
 from confluent_kafka.cimpl import Producer
 
-conf = {'bootstrap.servers': config.resolve_config("BROKER")}
+conf = {
+    "bootstrap.servers": "pkc-e8mp5.eu-west-1.aws.confluent.cloud:9092",
+    "sasl.mechanisms": "PLAIN",
+    "security.protocol": "SASL_SSL",
+    "sasl.username": os.environ.get("CONF_API_KEY"),
+    "sasl.password": os.environ.get("CONF_API_SECRET")
+}
 
 
 def on_delivery(err, msg):

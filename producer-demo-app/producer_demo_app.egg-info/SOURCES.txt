@@ -1,4 +1,5 @@
 README.md
+setup.py
 producer-demo-app/producer_demo_app.egg-info/PKG-INFO
 producer-demo-app/producer_demo_app.egg-info/SOURCES.txt
 producer-demo-app/producer_demo_app.egg-info/dependency_links.txt
